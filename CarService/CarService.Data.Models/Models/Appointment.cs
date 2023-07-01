@@ -3,14 +3,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarService.Data.Models
+namespace CarService.Data.Models.Models
 {
     [Comment("Appointment Table")]
-	public class Appointment
-	{
+    public class Appointment
+    {
         [Comment("Primary Key")]
         [Key]
-		public int Id { get; set; }
+        public int Id { get; set; }
 
         [Comment("Appointment Date and Time")]
         [Required]

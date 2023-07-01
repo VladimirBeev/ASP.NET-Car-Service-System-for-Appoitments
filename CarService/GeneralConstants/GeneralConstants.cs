@@ -2,6 +2,6 @@
 {
     public static class GeneralConstants
     {
-        public const int ReleaseYear = 2022;
+        public const int ReleaseYear = 2023;
     }
 }

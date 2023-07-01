@@ -3,7 +3,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarService.Data.Models
+using static CarService.Common.EntityValidationConstants.CarConstant;
+
+namespace CarService.Data.Models.Models
 {
     [Comment("Car Table")]
     public class Car
@@ -14,24 +16,24 @@ namespace CarService.Data.Models
 
         [Comment("Car Make")]
         [Required]
-        [MaxLength(10)]
+        [MaxLength(CarMakeMaxLength)]
         public string Make { get; set; } = null!;
 
         [Comment("Car Model")]
         [Required]
-		[MaxLength(10)]
-		public string Model { get; set; } = null!;
+        [MaxLength(CarModelMaxLength)]
+        public string Model { get; set; } = null!;
 
         [Comment("Manufactured Year")]
         public int? Year { get; set; }
 
         [Comment("Fuel Type")]
         [Required]
-        [MaxLength(10)]
+        [Range(CarFuelMaxLength,CarFuelMinLength)]
         public FuelType FuelType { get; set; }
 
         [Comment("Color of car")]
-        [MaxLength(15)]
+        [MaxLength(CarColorMaxLength)]
         public string? Color { get; set; }
 
         [Comment("Type of Transmission")]
@@ -42,13 +44,13 @@ namespace CarService.Data.Models
         [MaxLength(7)]
         public string? Kilometers { get; set; }
 
-		[Comment("Engine Power")]
-		[MaxLength(10)]
-		public string? EnginePower { get; set; }
+        [Comment("Engine Power")]
+        [MaxLength(10)]
+        public string? EnginePower { get; set; }
 
-		[Comment("Engine Type")]
-		[MaxLength(10)]
-		public string? EngineType { get; set; }
+        [Comment("Engine Type")]
+        [MaxLength(10)]
+        public string? EngineType { get; set; }
 
         [Comment("Vin Number")]
         [Required]
@@ -61,8 +63,8 @@ namespace CarService.Data.Models
         public string RegNum { get; set; } = null!;
 
 
-		[Comment("Owner Id")]
-		public int OwnerId { get; set; }
+        [Comment("Owner Id")]
+        public int OwnerId { get; set; }
         [Comment("Owner")]
         [ForeignKey(nameof(OwnerId))]
         [Required]

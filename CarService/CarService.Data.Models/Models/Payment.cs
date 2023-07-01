@@ -1,18 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using NuGet.Packaging.Signing;
-
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarService.Data.Models
+namespace CarService.Data.Models.Models
 {
     [Comment("Payment Table")]
-	public class Payment
-	{
+    public class Payment
+    {
         [Comment("Primary Key")]
         [Key]
-		public int Id { get; set; }
+        public int Id { get; set; }
 
         [Comment("Payment Type")]
         [Required]
@@ -22,7 +20,7 @@ namespace CarService.Data.Models
 
         [Comment("Amount")]
         [Required]
-        [Precision(6,2)]
+        [Precision(6, 2)]
         public decimal Amount { get; set; }
 
         [Comment("Date of pay")]

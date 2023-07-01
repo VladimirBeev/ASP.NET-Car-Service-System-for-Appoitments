@@ -1,11 +1,11 @@
-﻿using CarService.Data.Models;
+﻿using CarService.Data.Models.Models;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarService.Data
 {
-	public class CarServiceDbContext : IdentityDbContext
+    public class CarServiceDbContext : IdentityDbContext
 	{
 		public CarServiceDbContext(DbContextOptions<CarServiceDbContext> options)
 			: base(options)

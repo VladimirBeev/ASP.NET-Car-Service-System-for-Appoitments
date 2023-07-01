@@ -3,11 +3,11 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CarService.Data.Models
+namespace CarService.Data.Models.Models
 {
     [Comment("Car Owner Table")]
-	public class CarOwner
-	{
+    public class CarOwner
+    {
         [Comment("Primary Key")]
         [Key]
         public int Id { get; set; }

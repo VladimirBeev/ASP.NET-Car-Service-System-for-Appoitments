@@ -1,4 +1,4 @@
-﻿using CarService.Models;
+﻿using CarService.Web.ViewModels.Home;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace CarService.Controllers
 {
-	public class HomeController : Controller
+    public class HomeController : Controller
 	{
 		public IActionResult Index()
 		{
