@@ -2,9 +2,11 @@
 
 using System.ComponentModel.DataAnnotations;
 
+using static CarService.Common.EntityValidationConstants.CarsServiceConstants;
+
 namespace CarService.Data.Models.Models
 {
-    [Comment("Car Service Table")]
+	[Comment("Car Service Table")]
     public class CarsService
     {
         [Comment("Primary Key")]
@@ -13,8 +15,10 @@ namespace CarService.Data.Models.Models
 
         [Comment("Service Name")]
         [Required]
-        [MaxLength(50)]
+        [MaxLength(CarsServiceNameMaxLength)]
         public string Name { get; set; } = null!;
+        
+        // TODO: Make class for Service Types
 
         [Comment("Service Type")]
         [Required]

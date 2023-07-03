@@ -3,11 +3,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using static CarService.Common.EntityValidationConstants.CarConstant;
+using static CarService.Common.EntityValidationConstants.CarConstants;
 
 namespace CarService.Data.Models.Models
 {
-    [Comment("Car Table")]
+	[Comment("Car Table")]
     public class Car
     {
         [Comment("Primary Key")]
@@ -17,11 +17,15 @@ namespace CarService.Data.Models.Models
         [Comment("Car Make")]
         [Required]
         [MaxLength(CarMakeMaxLength)]
+
+        // TODO: Make class for Make
         public string Make { get; set; } = null!;
 
         [Comment("Car Model")]
         [Required]
         [MaxLength(CarModelMaxLength)]
+
+        // TODO:Make class for Model
         public string Model { get; set; } = null!;
 
         [Comment("Manufactured Year")]
@@ -29,37 +33,47 @@ namespace CarService.Data.Models.Models
 
         [Comment("Fuel Type")]
         [Required]
-        [Range(CarFuelMaxLength,CarFuelMinLength)]
-        public FuelType FuelType { get; set; }
+        [Range(CarFuelMaxLength, CarFuelMinLength)]
+
+		// TODO: Make class for Fuel Type
+		public FuelType FuelType { get; set; }
 
         [Comment("Color of car")]
         [MaxLength(CarColorMaxLength)]
+
+        // TODO: Make class for Color
         public string? Color { get; set; }
 
         [Comment("Type of Transmission")]
-        [MaxLength(15)]
+        [MaxLength(CarTransmissionTypeMaxLength)]
+
+        // TODO: Make class for Transmission Type
         public string? TransmissionType { get; set; }
 
         [Comment("Kilometers")]
-        [MaxLength(7)]
-        public string? Kilometers { get; set; }
+        [MaxLength(CarKilometersMaxLength)]
+        public int? Kilometers { get; set; }
 
         [Comment("Engine Power")]
-        [MaxLength(10)]
+        [MaxLength(CarEnginePowerMaxLength)]
+
+        // TODO: Make class for Engine Power
         public string? EnginePower { get; set; }
 
         [Comment("Engine Type")]
-        [MaxLength(10)]
+        [MaxLength(CarEngineTypeMaxLength)]
+
+        // TODO: Make class for Engine Type
         public string? EngineType { get; set; }
 
         [Comment("Vin Number")]
         [Required]
-        [MaxLength(15)]
+        [MaxLength(CarVinMaxLength)]
         public string Vin { get; set; } = null!;
 
         [Comment("Registration Number")]
         [Required]
-        [MaxLength(7)]
+        [MaxLength(CarRegNumMaxLength)]
         public string RegNum { get; set; } = null!;
 
 

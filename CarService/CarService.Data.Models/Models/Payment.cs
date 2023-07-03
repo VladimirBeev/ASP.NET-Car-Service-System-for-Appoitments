@@ -3,6 +3,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using static CarService.Common.EntityValidationConstants.PaymentConstants;
+
 namespace CarService.Data.Models.Models
 {
     [Comment("Payment Table")]
@@ -15,6 +17,8 @@ namespace CarService.Data.Models.Models
         [Comment("Payment Type")]
         [Required]
         [Range(minimum: 1, maximum: 3)]
+
+        // TODO: Make class for Payment Type
         public PaymentType PaymentTypeId { get; set; }
         public bool Status { get; set; }
 
@@ -25,6 +29,7 @@ namespace CarService.Data.Models.Models
 
         [Comment("Date of pay")]
         [Required]
+        [RegularExpression(PaymentDateOfPayRegEx)]
         public DateTime DateOfPay { get; set; }
 
 

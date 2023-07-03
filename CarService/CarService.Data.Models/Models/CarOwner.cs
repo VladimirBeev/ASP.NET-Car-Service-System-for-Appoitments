@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+using static CarService.Common.EntityValidationConstants.CarOwnerConstants;
 
 namespace CarService.Data.Models.Models
 {
-    [Comment("Car Owner Table")]
+	[Comment("Car Owner Table")]
     public class CarOwner
     {
         [Comment("Primary Key")]
@@ -14,33 +16,34 @@ namespace CarService.Data.Models.Models
 
         [Comment("Name of owner")]
         [Required]
-        [MaxLength(50)]
+        [MaxLength(CarOwnerNameMaxLength)]
         public string Name { get; set; } = null!;
 
         [Comment("Address of owner")]
-        [MaxLength(100)]
+        [MaxLength(CarOwnerAddressMaxLength)]
         public string? Address { get; set; }
 
         [Comment("Phone Number")]
         [Required]
-        [MaxLength(10)]
+		[Phone]
+		[RegularExpression(CarOwnerPhoneNumberRegEx)]
         public int PhoneNumber { get; set; }
 
         [Comment("Date of birth")]
+        [RegularExpression(CarOwnerDateOfBirthRegEx)]
         public DateTime? DateOfBirth { get; set; }
 
         [Comment("Email of owner")]
-        [EmailAddress]
-        [Required]
-        [MaxLength(40)]
+		[Required]
+		[EmailAddress]
+        [RegularExpression(CarOwnerEmailRegEx)]
         public string Email { get; set; } = null!;
 
         [Comment("Password of owner")]
         [Required]
-        [PasswordPropertyText]
-        [MaxLength(20)]
+        [RegularExpression(CarOwnerPasswordRegEx)]
         public string Password { get; set; } = null!;
-        //public string? grantLevel { get; set; }
+
         public ICollection<Car> Car { get; set; } = new List<Car>();
     }
 }

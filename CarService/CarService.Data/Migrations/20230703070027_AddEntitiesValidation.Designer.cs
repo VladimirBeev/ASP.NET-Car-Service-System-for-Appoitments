@@ -4,6 +4,7 @@ using CarService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarService.Migrations
 {
     [DbContext(typeof(CarServiceDbContext))]
-    partial class CarServiceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703070027_AddEntitiesValidation")]
+    partial class AddEntitiesValidation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,6 @@ namespace CarService.Migrations
 
                     b.Property<DateTime>("AppointmentDateTime")
                         .HasColumnType("datetime2")
-                        .HasColumnName("Appointment Date")
                         .HasComment("Appointment Date and Time");
 
                     b.Property<int>("CarId")
@@ -82,18 +83,15 @@ namespace CarService.Migrations
                     b.Property<string>("EnginePower")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnName("Engine Power")
                         .HasComment("Engine Power");
 
                     b.Property<string>("EngineType")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnName("Engine Type")
                         .HasComment("Engine Type");
 
                     b.Property<int>("FuelType")
                         .HasColumnType("int")
-                        .HasColumnName("Fuel Type")
                         .HasComment("Fuel Type");
 
                     b.Property<int?>("Kilometers")
@@ -121,20 +119,17 @@ namespace CarService.Migrations
                         .IsRequired()
                         .HasMaxLength(7)
                         .HasColumnType("nvarchar(7)")
-                        .HasColumnName("Registration Number")
                         .HasComment("Registration Number");
 
                     b.Property<string>("TransmissionType")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
-                        .HasColumnName("Transmission Type")
                         .HasComment("Type of Transmission");
 
                     b.Property<string>("Vin")
                         .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)")
-                        .HasColumnName("Vin Number")
                         .HasComment("Vin Number");
 
                     b.Property<int?>("Year")
@@ -166,7 +161,6 @@ namespace CarService.Migrations
 
                     b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("datetime2")
-                        .HasColumnName("Date Of Birth")
                         .HasComment("Date of birth");
 
                     b.Property<string>("Email")
@@ -187,7 +181,6 @@ namespace CarService.Migrations
 
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int")
-                        .HasColumnName("Phone Number")
                         .HasComment("Phone Number");
 
                     b.HasKey("Id");
@@ -246,14 +239,12 @@ namespace CarService.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2")
-                        .HasColumnName("End Date")
                         .HasComment("End Date");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(130)
                         .HasColumnType("nvarchar(130)")
-                        .HasColumnName("First Name")
                         .HasComment("First Name");
 
                     b.Property<bool?>("IsActive")
@@ -264,12 +255,10 @@ namespace CarService.Migrations
                         .IsRequired()
                         .HasMaxLength(130)
                         .HasColumnType("nvarchar(130)")
-                        .HasColumnName("Last Name")
                         .HasComment("Last Name");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2")
-                        .HasColumnName("Start Date")
                         .HasComment("Start Date");
 
                     b.HasKey("Id");
@@ -295,7 +284,6 @@ namespace CarService.Migrations
 
                     b.Property<DateTime>("DateOfPay")
                         .HasColumnType("datetime2")
-                        .HasColumnName("Date Of Pay")
                         .HasComment("Date of pay");
 
                     b.Property<int>("OwnerId")

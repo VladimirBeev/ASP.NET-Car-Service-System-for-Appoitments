@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using static CarService.Common.EntityValidationConstants.AppointmentConstants;
+
 namespace CarService.Data.Models.Models
 {
-    [Comment("Appointment Table")]
+	[Comment("Appointment Table")]
     public class Appointment
     {
         [Comment("Primary Key")]
@@ -14,6 +17,7 @@ namespace CarService.Data.Models.Models
 
         [Comment("Appointment Date and Time")]
         [Required]
+        [RegularExpression(AppointmentDateRegEx)]
         public DateTime AppointmentDateTime { get; set; }
 
         [Comment("Status")]
@@ -37,6 +41,5 @@ namespace CarService.Data.Models.Models
         [Comment("Service")]
         [ForeignKey(nameof(CarServiceId))]
         public CarsService? CarService { get; set; }
-
     }
 }
